@@ -54,7 +54,7 @@ function AppointmentForm() {
   return (
     <Box>
 
-      {/* Patient Information */}
+      {/*** Patient Information ***/}
       <Box mb={4}>
         <Heading color="gray.600" mb={2} size="sm">Patient Information</Heading>
 
@@ -85,7 +85,7 @@ function AppointmentForm() {
         </Stack>
       </Box>
 
-      {/* Appointment Preferences */}
+      {/*** Appointment Preferences ***/}
       <Box mb={4}>
         <Heading color="gray.600" mb={2} size="sm">Appointment Preferences</Heading>
         <Stack direction={{base: "column", sm: "row"}}>

@@ -1,11 +1,9 @@
 import { Image, Flex, Box, Text, Link as ChakraLink } from '@chakra-ui/react';
-import HomeLogo from './HomeLogo';
-import SearchBar from '../SearchBar';
 import { Link } from 'react-router-dom';
 import FemaleDoc from '../../assets/doctor-female.png';
 import MaleDoc from '../../assets/doctor-male.png';
 
-function Home({ query, setQuery, onSearch }) {
+function Footer() {
 
   const footerHeight = "80px";
 
@@ -32,15 +30,11 @@ function Home({ query, setQuery, onSearch }) {
   );
 
   return (
-    <Box pt={40} maxH="100vh" h="100vh" position="relative">
-      <Flex w="80%" maxW="1000px" mx="auto" flexDirection="column" justifyContent="center">
-        <HomeLogo />
-        <SearchBar query={query} setQuery={setQuery} onSearch={onSearch} />
-      </Flex>
+    <div>
       { DoctorImages }
       { BlueStrip }
-    </Box>
-  );
+    </div>
+  )
 }
 
-export default Home;
+export default Footer;

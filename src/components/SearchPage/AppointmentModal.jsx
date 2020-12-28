@@ -8,6 +8,7 @@ import {
   ModalOverlay,
 } from '@chakra-ui/react';
 import AppointmentForm from './AppointmentForm';
+import PropTypes from 'prop-types';
 
 function AppointmentModal({ isOpen, onClose }) {
   return (
@@ -26,6 +27,11 @@ function AppointmentModal({ isOpen, onClose }) {
       </ModalContent>
     </Modal>
   )
+}
+
+AppointmentModal.propTypes = {
+  isOpen: PropTypes.bool.isRequired,
+  onClose: PropTypes.func.isRequired,
 }
 
 export default AppointmentModal;

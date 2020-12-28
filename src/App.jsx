@@ -2,16 +2,18 @@ import { useState } from 'react';
 import { useToast, useDisclosure } from '@chakra-ui/react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { getProvidersByName } from './services';
-import Home from './components/HomePage/Home';
-import Search from './components/SearchPage/Search';
+import Home from './components/HomePage/HomePage';
+import Search from './components/SearchPage/SearchPage';
+import Provider from './components/ProviderPage/ProviderPage';
 
 function App() {
 
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const toast = useToast();
+
   const [ providers, setProviders ] = useState([]);
   const [ query, setQuery ] = useState('');
   const [ isLoading, setLoading ] = useState(false);
-  const toast = useToast();
 
   const onSearch = (event) => {
 
@@ -43,13 +45,8 @@ function App() {
       <Route exact path="/">
         <Home
           query={query}
-          providers={providers}
-          isLoading={isLoading}
-          isOpen={isOpen}
           setQuery={setQuery}
           onSearch={onSearch}
-          onOpen={onOpen}
-          onClose={onClose}
         />
       </Route>
       <Route path="/search">
@@ -65,6 +62,9 @@ function App() {
           onOpen={onOpen}
           onClose={onClose}
         />
+      </Route>
+      <Route path="/provider-form">
+        <Provider />
       </Route>
     </Router>
   );

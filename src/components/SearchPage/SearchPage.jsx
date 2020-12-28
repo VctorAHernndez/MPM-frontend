@@ -1,15 +1,22 @@
 import { useEffect } from 'react';
-import { useToast } from '@chakra-ui/react';
+import { Box, useToast } from '@chakra-ui/react';
 import { getProviders } from '../../services';
 import Header from './Header';
 import Main from './Main';
 import AppointmentModal from './AppointmentModal';
+import Footer from '../Reusable/Footer';
 
-function Search({query, providers, isLoading, isOpen, setQuery, setLoading, setProviders, onSearch, onOpen, onClose}) {
+function SearchPage({query, providers, isLoading, isOpen, setQuery, setLoading, setProviders, onSearch, onOpen, onClose}) {
 
   const toast = useToast();
 
   useEffect(() => {
+
+    // Get all providers only if string is empty
+    // and providers haven't been searched for yet
+    if(query !== '' || providers.length) {
+      return;
+    }
 
     setLoading(true);
     
@@ -31,15 +38,18 @@ function Search({query, providers, isLoading, isOpen, setQuery, setLoading, setP
       })
       .finally(setLoading(false));
       
-  }, [toast, setProviders, setLoading]);
+  }, [query, providers, toast, setProviders, setLoading]);
 
   return (
     <div>
+    <Box minH="100vh" position="relative">
       <Header query={query} setQuery={setQuery} onSearch={onSearch} />
       <Main providers={providers} isLoading={isLoading} onOpen={onOpen} />
-      <AppointmentModal isOpen={isOpen} onClose={onClose} />
+      <Footer />
+    </Box>
+    <AppointmentModal isOpen={isOpen} onClose={onClose} />
     </div>
-  )
+  );
 }
 
-export default Search;
+export default SearchPage;
