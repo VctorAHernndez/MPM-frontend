@@ -20,11 +20,9 @@ function Footer({ skipImages }) {
       <Flex h="100%" alignItems="center" justifyContent="center" flexDirection="column">
         <Text color="white">
           Are you a provider? {" "}
-          <Link to="/provider-form">
-            <ChakraLink as="span" fontWeight="bold" color="blue.700">
-              Join Us
-            </ChakraLink>
-          </Link>
+          <ChakraLink as={Link} to="/provider-form" fontWeight="bold" color="blue.700">
+            Join Us
+          </ChakraLink>
         </Text>
       </Flex>
     </Box>

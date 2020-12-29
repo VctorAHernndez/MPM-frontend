@@ -80,7 +80,7 @@ function AppointmentForm({ currentProvider, onClose }) {
 
     setLoading(true);
 
-    const providerID = currentProvider.id; // TODO: get this from props
+    const providerID = currentProvider.id;
     const body = prepareAppointmentBody(firstName, lastName, gender, 
           phone, DOB, date, time, reason, providerID);
     console.log(body);
@@ -125,7 +125,7 @@ function AppointmentForm({ currentProvider, onClose }) {
         {/* First Row */}
         <Stack mb={2} direction={{base: "column", sm: "row"}}>
           <Input placeholder="First Name" value={firstName} onChange={onFirstNameChange} isRequired />
-          {/* <PinInput placeholder="I.">
+          {/* <PinInput placeholder="Initial">
             <PinInputField />
           </PinInput> */}
           <Input placeholder="Last Names" value={lastName} onChange={onLastNameChange} isRequired />
@@ -133,7 +133,6 @@ function AppointmentForm({ currentProvider, onClose }) {
 
         {/* Second Row */}
         <Stack mb={2} direction={{base: "column", sm: "row"}}>
-          {/* <Input placeholder="Date of Birth"/> */}
           <Select value={gender} onChange={onGenderChange} placeholder="Gender" isRequired>
             <option value="M">Male</option>
             <option value="F">Female</option>
@@ -154,18 +153,6 @@ function AppointmentForm({ currentProvider, onClose }) {
             <FormLabel>
               <small>Date of Birth</small>
             </FormLabel>
-            {/* <SingleDatePicker
-              id="dob"
-              numberOfMonths={1} 
-              date={DOB}
-              focused={DOBFocused} 
-              onDateChange={onDOBChange} 
-              onFocusChange={onDOBFocusedChange}
-              placeholder="Date of Birth"
-              showDefaultInputIcon
-              showClearDate
-              small
-            /> */}
             <DatePicker value={DOB} onChange={onDOBChange} isRequired />
             {/* <FormHelperText>Select your date of birth.</FormHelperText> */}
           </FormControl>
@@ -180,18 +167,6 @@ function AppointmentForm({ currentProvider, onClose }) {
             <FormLabel>
               <small>Preferred Date</small>
             </FormLabel>
-            {/* <SingleDatePicker
-              id="date"
-              numberOfMonths={1} 
-              date={date}
-              focused={dateFocused} 
-              onDateChange={onDateChange} 
-              onFocusChange={onDateFocusedChange}
-              placeholder="Preferred Date"
-              showDefaultInputIcon
-              showClearDate
-              small
-            /> */}
             <DatePicker value={date} onChange={onDateChange} isRequired />
             {/* <FormHelperText>Select your preferred date.</FormHelperText> */}
           </FormControl>

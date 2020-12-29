@@ -9,6 +9,10 @@ This project is a prototype version of a Medical Provider Marketplace where peop
 2. Run `npm install`
 3. Run `npm run start`
 
+# Progress & Maintenance
+
+The build and maintenance progress is being documented [here](https://trello.com/b/u6mFQulW/medical-provider-marketplace), for anyone interested.
+
 # Acknowledgements
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
