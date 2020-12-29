@@ -8,7 +8,7 @@ import {
   Grid,
 } from '@chakra-ui/react';
 import { GiAlarmClock } from 'react-icons/gi';
-import DoctorCropped from '../assets/doctor-cropped.png';
+import DoctorCropped from '../../assets/doctor-cropped.png';
 import PropTypes from 'prop-types';
 
 function ProviderCardSkeleton() {

@@ -1,0 +1,4 @@
+/* Override Ant Styles */
+.ant-picker-dropdown {
+  z-index: 1500; /* must be above modal */
+}

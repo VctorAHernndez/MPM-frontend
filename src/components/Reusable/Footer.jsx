@@ -2,8 +2,9 @@ import { Image, Flex, Box, Text, Link as ChakraLink } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
 import FemaleDoc from '../../assets/doctor-female.png';
 import MaleDoc from '../../assets/doctor-male.png';
+import PropTypes from 'prop-types';
 
-function Footer() {
+function Footer({ skipImages }) {
 
   const footerHeight = "80px";
 
@@ -31,10 +32,14 @@ function Footer() {
 
   return (
     <div>
-      { DoctorImages }
+      { !skipImages && DoctorImages }
       { BlueStrip }
     </div>
   )
+}
+
+Footer.propTypes = {
+  skipImages: PropTypes.bool,
 }
 
 export default Footer;

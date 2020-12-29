@@ -1,9 +1,16 @@
 import { 
   getProviders,
-  getProvidersByName
+  getProvidersByName,
+  addProvider,
 } from './providers';
+
+import {
+  bookAppointment,
+} from './appointments';
 
 export {
   getProviders,
-  getProvidersByName
+  getProvidersByName,
+  addProvider,
+  bookAppointment,
 };

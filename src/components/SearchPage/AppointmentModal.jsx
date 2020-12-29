@@ -10,9 +10,9 @@ import {
 import AppointmentForm from './AppointmentForm';
 import PropTypes from 'prop-types';
 
-function AppointmentModal({ isOpen, onClose }) {
+function AppointmentModal({ currentProvider, isOpen, onClose }) {
   return (
-    <Modal isOpen={isOpen} size="xl" onClose={onClose}>
+    <Modal isOpen={isOpen} size="xl" scrollBehavior="inside" onClose={onClose}>
       <ModalOverlay />
       <ModalContent py={3}>
         <ModalHeader>
@@ -22,7 +22,10 @@ function AppointmentModal({ isOpen, onClose }) {
         </ModalHeader>
         <ModalCloseButton />
         <ModalBody>
-          <AppointmentForm />
+          <Heading textAlign="right" size="xs" color="gray.500">
+            { currentProvider.full_name } <small>({ currentProvider.specialty })</small>
+          </Heading>
+          <AppointmentForm currentProvider={currentProvider} onClose={onClose} />
         </ModalBody>
       </ModalContent>
     </Modal>
@@ -30,6 +33,7 @@ function AppointmentModal({ isOpen, onClose }) {
 }
 
 AppointmentModal.propTypes = {
+  currentProvider: PropTypes.object.isRequired,
   isOpen: PropTypes.bool.isRequired,
   onClose: PropTypes.func.isRequired,
 }

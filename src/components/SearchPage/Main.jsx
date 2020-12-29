@@ -5,11 +5,11 @@ import {
   Center,
   Heading,
  } from '@chakra-ui/react';
-import ProviderCard from '../ProviderCard';
-import { ProviderCardSkeletonList } from '../ProviderCardSkeleton';
+import ProviderCard from './ProviderCard';
+import { ProviderCardSkeletonList } from './ProviderCardSkeleton';
 import PropTypes from 'prop-types';
 
-function Main({ providers, isLoading, onOpen }) {
+function Main({ providers, isLoading, setCurrentProvider, onOpen }) {
 
   const NoProvidersNotice = (
     <Box mt={5}>
@@ -32,7 +32,7 @@ function Main({ providers, isLoading, onOpen }) {
       {
         providers.map((provider) =>
           <GridItem key={provider.id}>
-            <ProviderCard key={provider.id} provider={provider} onOpen={onOpen} />
+            <ProviderCard key={provider.id} provider={provider} onOpen={onOpen} setCurrentProvider={setCurrentProvider} />
           </GridItem>
         )            
       }
@@ -54,6 +54,7 @@ function Main({ providers, isLoading, onOpen }) {
 Main.propTypes = {
   providers: PropTypes.array.isRequired,
   isLoading: PropTypes.bool.isRequired,
+  setCurrentProvider: PropTypes.func.isRequired,
   onOpen: PropTypes.func.isRequired,
 }
 

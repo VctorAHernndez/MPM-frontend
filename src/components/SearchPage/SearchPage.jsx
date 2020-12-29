@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Box, useToast } from '@chakra-ui/react';
 import { getProviders } from '../../services';
 import Header from './Header';
@@ -9,6 +9,7 @@ import Footer from '../Reusable/Footer';
 function SearchPage({query, providers, isLoading, isOpen, setQuery, setLoading, setProviders, onSearch, onOpen, onClose}) {
 
   const toast = useToast();
+  const [ currentProvider, setCurrentProvider ] = useState({});
 
   useEffect(() => {
 
@@ -44,10 +45,10 @@ function SearchPage({query, providers, isLoading, isOpen, setQuery, setLoading, 
     <div>
     <Box minH="100vh" position="relative">
       <Header query={query} setQuery={setQuery} onSearch={onSearch} />
-      <Main providers={providers} isLoading={isLoading} onOpen={onOpen} />
-      <Footer />
+      <Main providers={providers} isLoading={isLoading} onOpen={onOpen} setCurrentProvider={setCurrentProvider} />
+      <Footer skipImages={true} />
     </Box>
-    <AppointmentModal isOpen={isOpen} onClose={onClose} />
+    <AppointmentModal isOpen={isOpen} onClose={onClose} currentProvider={currentProvider} />
     </div>
   );
 }

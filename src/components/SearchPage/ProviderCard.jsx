@@ -10,15 +10,20 @@ import {
   Link,
 } from '@chakra-ui/react';
 import { GiAlarmClock } from 'react-icons/gi';
-import DoctorCropped from '../assets/doctor-cropped.png';
+import DoctorCropped from '../../assets/doctor-cropped.png';
 import PropTypes from 'prop-types';
 
-function ProviderCard({ provider, onOpen }) {
+function ProviderCard({ provider, setCurrentProvider, onOpen }) {
 
   // TODO: Figure out if we'll store additional data like this
   const place = "San Juan Plaza";
   const phone = "+17872426114";
   const formattedPhone = "(787) 242-6114";
+
+  const onClick = (event) => {
+    setCurrentProvider(provider);
+    onOpen();
+  }
 
   const Description = (
     <Flex h="100%" p={2} flexDirection="column">
@@ -53,7 +58,7 @@ function ProviderCard({ provider, onOpen }) {
         aria-label="book appointment"
         _hover={{backgroundColor: "transparent"}}
         icon={<GiAlarmClock size="1.5em" />}
-        onClick={onOpen}
+        onClick={onClick}
       />
     </Tooltip>
   );
