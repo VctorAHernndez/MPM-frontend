@@ -10,6 +10,11 @@ function SearchPage({query, providers, isLoading, isOpen, setQuery, setLoading, 
 
   const toast = useToast();
   const [ currentProvider, setCurrentProvider ] = useState({});
+  const [ filterType, setFilterType ] = useState('COMBINED');
+
+  const carryOutSearch = () => {
+    onSearch(filterType);
+  }
 
   useEffect(() => {
 
@@ -44,7 +49,7 @@ function SearchPage({query, providers, isLoading, isOpen, setQuery, setLoading, 
   return (
     <div>
     <Box minH="100vh" position="relative">
-      <Header query={query} setQuery={setQuery} onSearch={onSearch} />
+      <Header query={query} filterType={filterType} setFilterType={setFilterType} setQuery={setQuery} search={carryOutSearch} />
       <Main providers={providers} isLoading={isLoading} onOpen={onOpen} setCurrentProvider={setCurrentProvider} />
       <Footer skipImages={true} />
     </Box>

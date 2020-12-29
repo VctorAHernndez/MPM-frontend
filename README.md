@@ -6,8 +6,8 @@ This project is a prototype version of a Medical Provider Marketplace where peop
 
 1. Clone repository
 2. `cd` into the cloned folder
-2. Run `npm install`
-3. Run `npm run start`
+3. Run `npm install`
+4. Run `npm run start`
 
 # Progress & Maintenance
 

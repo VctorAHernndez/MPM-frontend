@@ -1,6 +1,8 @@
 import { 
   getProviders,
+  getProvidersByQuery,
   getProvidersByName,
+  getProvidersBySpecialty,
   addProvider,
 } from './providers';
 
@@ -10,7 +12,9 @@ import {
 
 export {
   getProviders,
+  getProvidersByQuery,
   getProvidersByName,
+  getProvidersBySpecialty,
   addProvider,
   bookAppointment,
 };

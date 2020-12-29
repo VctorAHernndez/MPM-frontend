@@ -7,7 +7,7 @@ import {
 import { GoSearch } from 'react-icons/go';
 import PropTypes from 'prop-types';
 
-function SearchBar({ query, setQuery, onSearch }) {
+function SearchBar({ query, setQuery, search }) {
 
   const onChange = (event) => {
     const newQuery = event.target.value;
@@ -16,7 +16,7 @@ function SearchBar({ query, setQuery, onSearch }) {
 
   const onKeyUp = (event) => {
     if(event.key === 'Enter') {
-      onSearch();
+      search();
     }
   }
 
@@ -35,7 +35,7 @@ function SearchBar({ query, setQuery, onSearch }) {
             bgColor="transparent"
             borderLeftRadius="0"
             icon={<GoSearch />}
-            onClick={onSearch}
+            onClick={search}
           />
         </InputRightElement>
       </InputGroup>
@@ -44,7 +44,7 @@ function SearchBar({ query, setQuery, onSearch }) {
 }
 
 SearchBar.propTypes = {
-  onSearch: PropTypes.func.isRequired,
+  search: PropTypes.func.isRequired,
   setQuery: PropTypes.func.isRequired,
   query: PropTypes.string.isRequired
 }

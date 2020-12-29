@@ -82,7 +82,6 @@ function ProviderPage() {
           <Link to="/">
             <LogoBox flex={1} />
           </Link>
-          {/* m={{base: 3, md: 0}} */}
           <Spacer />
           <Center>
             <Heading size="sm" color="gray.400">&copy; Nández 2020</Heading>

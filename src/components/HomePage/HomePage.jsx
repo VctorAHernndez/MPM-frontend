@@ -12,14 +12,14 @@ function HomePage({ query, setQuery, onSearch }) {
 
   const redirectAndSearch = () => {
     setGoToSearchPage(true);
-    onSearch();
+    onSearch('COMBINED');
   }
 
   return (
     <Box pt={40} maxH="100vh" h="100vh" position="relative">
       <Flex w="80%" maxW="1000px" mx="auto" flexDirection="column" justifyContent="center">
         <HomeLogo />
-        <SearchBar query={query} setQuery={setQuery} onSearch={redirectAndSearch} />
+        <SearchBar query={query} setQuery={setQuery} search={redirectAndSearch} />
       </Flex>
       <Footer />
       { goToSearchPage && <Redirect to="/search" /> }

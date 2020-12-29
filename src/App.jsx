@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useToast, useDisclosure } from '@chakra-ui/react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import { getProvidersByName } from './services';
+import { getProvidersByName, getProvidersByQuery, getProvidersBySpecialty } from './services';
 import Home from './components/HomePage/HomePage';
 import Search from './components/SearchPage/SearchPage';
 import Provider from './components/ProviderPage/ProviderPage';
@@ -15,11 +15,27 @@ function App() {
   const [ query, setQuery ] = useState('');
   const [ isLoading, setLoading ] = useState(false);
 
-  const onSearch = (event) => {
+  const onSearch = (mode) => {
 
     setLoading(true);
 
-    getProvidersByName(query)
+    let searchFunction;
+
+    switch(mode) {
+      case 'COMBINED':
+        searchFunction = getProvidersByQuery;
+        break;
+      case 'NAME':
+        searchFunction = getProvidersByName;
+        break;
+      case 'SPECIALTY':
+        searchFunction = getProvidersBySpecialty;
+        break;
+      default:
+        searchFunction = getProvidersByQuery;
+    }
+
+    searchFunction(query)
       .then(res => {
         const newProviders = res.data;
         console.log(newProviders);
