@@ -1,13 +1,5 @@
-import axios from 'axios';
-import { getCookie } from '../utils';
+import { requests } from './requests';
 
 export function bookAppointment(body) {
-  return axios({
-    method: 'POST',
-    url: '/appointments/',
-    headers: {
-      'X-CSRFToken': getCookie('csrftoken'),
-    },
-    data: body,
-  });
+  return requests.post('/appointments/', body);
 }

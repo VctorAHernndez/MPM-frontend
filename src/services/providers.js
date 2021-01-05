@@ -1,12 +1,11 @@
-import axios from 'axios';
-import { getCookie } from '../utils';
+import { requests } from './requests';
 
 export function getProviders() {
-  return axios.get('/providers/');
+  return requests.get('/providers/');
 }
 
 export function getProvidersByQuery(query) {
-  return axios.get('/providers/', {
+  return requests.get('/providers/', {
     params: {
       q: query,
     }
@@ -14,7 +13,7 @@ export function getProvidersByQuery(query) {
 }
 
 export function getProvidersByName(name) {
-  return axios.get('/providers/', {
+  return requests.get('/providers/', {
     params: {
       name: name,
     }
@@ -22,7 +21,7 @@ export function getProvidersByName(name) {
 }
 
 export function getProvidersBySpecialty(specialty) {
-  return axios.get('/providers/', {
+  return requests.get('/providers/', {
     params: {
       specialty: specialty,
     }
@@ -30,12 +29,5 @@ export function getProvidersBySpecialty(specialty) {
 }
 
 export function addProvider(body) {
-  return axios({
-    method: 'POST',
-    url: '/providers/',
-    headers: {
-      'X-CSRFToken': getCookie('csrftoken'),
-    },
-    data: body,
-  });
+  return requests.post('/providers/', body);
 }
