@@ -51,7 +51,7 @@ function App() {
           isClosable: true,
         });
       })
-      .finally(setLoading(false));
+      .finally(() => setLoading(false));
 
   }
 

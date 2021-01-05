@@ -107,7 +107,7 @@ function AppointmentForm({ currentProvider, onClose }) {
           isClosable: true,
         });
       })
-      .finally(setLoading(false));
+      .finally(() => setLoading(false));
 
     // TODO:
     // * Validate (check appointment doesn't clash with other appointments)

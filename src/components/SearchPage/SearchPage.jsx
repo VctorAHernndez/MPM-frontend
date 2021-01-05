@@ -42,7 +42,7 @@ function SearchPage({query, providers, isLoading, isOpen, setQuery, setLoading, 
           isClosable: true,
         });
       })
-      .finally(setLoading(false));
+      .finally(() => setLoading(false));
       
   }, [query, providers, toast, setProviders, setLoading]);
 
