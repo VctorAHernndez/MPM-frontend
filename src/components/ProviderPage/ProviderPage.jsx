@@ -107,7 +107,7 @@ function ProviderPage() {
               How can I get started?
             </Heading>
             <Text color="gray.600">
-              MPM was built so that connecting with patients is
+              MPM was built so that connecting with patients is {" "}
               <strong>fast and simple</strong>. Just fill out the
               form below and we'll get you up and running!
             </Text>
