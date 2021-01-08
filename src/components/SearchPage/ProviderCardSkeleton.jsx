@@ -59,7 +59,7 @@ function ProviderCardSkeletonList({length}) {
   const count = length ? length : 12;
   const skeletonCards = [];
   for(let i = 0; i < count; i++) {
-    skeletonCards.push(<ProviderCardSkeleton />);
+    skeletonCards.push(<ProviderCardSkeleton key={i} />);
   }
   return (
     <Grid 
